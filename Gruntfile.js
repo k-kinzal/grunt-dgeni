@@ -37,12 +37,11 @@ module.exports = function (grunt) {
 	  },
 	  dgeni: {
 	  	options: {
-	  		packages: [
-	  			require('dgeni-markdown')
-	  		],	
+	  		packages: ['dgeni-markdown'],
+  			basePath: '.tmp/angular/src/'
 	  	},
-	  	src: ['.tmp/angular/src/**.js'],
-	  	build: '.tmp/build/',
+	  	src: ['**/*.js'],
+	  	dest: '.tmp/build/',
 	  }
   });
   // tasks
@@ -62,6 +61,12 @@ module.exports = function (grunt) {
     
     grunt.task.run([
       'watch'
+    ]);
+  });
+  grunt.registerTask('dgeni', function() {
+    require('./tasks/dgeni')(grunt);    
+    grunt.task.run([
+      'dgeni'
     ]);
   });
   grunt.registerTask('test', function() {
