@@ -28,7 +28,7 @@ module.exports = function (grunt) {
 			return;
 		}
 		_.forEach(parameters, function(value, paramName) {
-			p.config(new Function(serviceName, serviceName+'.'+paramName+'='+"'"+value+"';"));
+			p.config(new Function(serviceName, serviceName+'.'+paramName+'='+JSON.stringify(value)+";"));
 		});
 	});
 	// setting readFilesProcessor configuration
