@@ -6,5 +6,8 @@
  * Licensed under the MIT license.
  */
 module.exports = function (grunt) {
-
+	'use strict';
+  grunt.registerTask('dgeni', 'generate markdown document by dgeni.', function () {
+  	console.log(1111);
+  });
 };
