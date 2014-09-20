@@ -17,16 +17,17 @@
   },
   "homepage": "https://github.com/k-kinzal/grunt-dgeni",
   "devDependencies": {
-    "dgeni-markdown": "0.0.1",
     "grunt-cli": "~0.1.13",
-    "dgeni": "~0.4.0",
     "grunt": "~0.4.5",
-    "dgeni-packages": "~0.10.0-rc.6",
     "grunt-contrib-clean": "~0.6.0",
-    "grunt-regarde": "~0.1.1",
     "grunt-contrib-jshint": "~0.10.0",
-    "grunt-git": "~0.2.14",
+    "grunt-regarde": "~0.1.1",
     "grunt-shell": "~1.1.1",
     "jshint-stylish": "~1.0.0"
+  },
+  "dependencies": {
+    "dgeni": "~0.4.0",
+    "dgeni-packages": "~0.10.0-rc.4",
+    "dgeni-markdown": "~0.0.1"
   }
 }
