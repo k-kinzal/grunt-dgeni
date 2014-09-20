@@ -1,0 +1,26 @@
+{
+  "name": "grunt-dgeni",
+  "version": "0.0.0",
+  "description": "",
+  "main": "tasks/dgeni.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-kinzal/grunt-dgeni"
+  },
+  "author": "k-kinzal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k-kinzal/grunt-dgeni/issues"
+  },
+  "homepage": "https://github.com/k-kinzal/grunt-dgeni",
+  "devDependencies": {
+    "dgeni-markdown": "0.0.1",
+    "grunt-cli": "~0.1.13",
+    "dgeni": "~0.4.0",
+    "grunt": "~0.4.5",
+    "dgeni-packages": "~0.10.0-rc.6"
+  }
+}
