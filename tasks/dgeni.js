@@ -15,11 +15,10 @@ module.exports = function (grunt) {
 	var _ = grunt.util._;
 	var config = grunt.config('dgeni');
 	var options = config.options;
-	var basePath = options.basePath;
 	// create package
 	var packages = [];
-	options.packages.forEach(function(p) {
-		packages.push(require(p));
+	options.packages.forEach(function(packageName) {
+		packages.push(require(packageName));
 	});
 	var p = new Package('grunt-dgeni', packages.length ? packages : require('dgeni-markdown'));
 	// setting processor configuration
@@ -33,7 +32,7 @@ module.exports = function (grunt) {
 	});
 	// setting readFilesProcessor configuration
 	config.src && p.config(function(readFilesProcessor) {
-		readFilesProcessor.basePath = path.resolve(basePath);
+		readFilesProcessor.basePath = path.resolve(options.basePath);
 		readFilesProcessor.sourceFiles = [];
 		config.src.forEach(function(sourceInfo) {
 			if (_.isString(sourceInfo)) {
