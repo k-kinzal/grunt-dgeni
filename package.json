@@ -10,7 +10,22 @@
     "type": "git",
     "url": "https://github.com/k-kinzal/grunt-dgeni"
   },
-  "author": "k-kinzal",
+  "author": {
+    "name": "k-kinzal",
+    "email": "log@logn.in"
+  },
+  "keywords": [
+    "gruntplugin",
+    "dgeni",
+    "ngdoc",
+    "angular",
+    "angularjs",
+    "dgeni",
+    "document generation",
+    "javascript",
+    "jsdoc"
+    "automatic"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/k-kinzal/grunt-dgeni/issues"
