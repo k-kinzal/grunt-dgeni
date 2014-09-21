@@ -1,0 +1,50 @@
+{
+  "name": "grunt-dgeni",
+  "version": "0.0.1",
+  "description": "generating documentation for grunt task",
+  "main": "tasks/dgeni.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-kinzal/grunt-dgeni"
+  },
+  "author": {
+    "name": "k-kinzal",
+    "email": "log@logn.in"
+  },
+  "keywords": [
+    "gruntplugin",
+    "dgeni",
+    "ngdoc",
+    "angular",
+    "angularjs",
+    "dgeni",
+    "document generation",
+    "javascript",
+    "jsdoc",
+    "automatic"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k-kinzal/grunt-dgeni/issues"
+  },
+  "homepage": "https://github.com/k-kinzal/grunt-dgeni",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-regarde": "~0.1.1",
+    "grunt-shell": "~1.1.1",
+    "grunt-jasmine-node": "~0.2.1",
+    "jshint-stylish": "~1.0.0",
+    "jasmine-node": "~1.14.5",
+    "proxyquire": "~1.0.1"
+  },
+  "dependencies": {
+    "dgeni": "~0.4.0",
+    "dgeni-packages": "~0.10.0-rc.4",
+    "dgeni-markdown": "~0.0.1"
+  }
+}
