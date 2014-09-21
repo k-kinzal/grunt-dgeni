@@ -1,4 +1,4 @@
-# grunt-plugin
+# grunt-dgeni
 
 [![Build Status](https://travis-ci.org/k-kinzal/grunt-dgeni.svg)](https://travis-ci.org/k-kinzal/grunt-dgeni)
 
