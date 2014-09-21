@@ -5,10 +5,8 @@
  * Copyright (c) 2014 k-kinzal
  * Licensed under the MIT license.
  */
-
-'use strict';
-
 module.exports = function (grunt) {
+  'use strict';
   // grunt configuration
   grunt.initConfig({
 	  clean: {
@@ -16,8 +14,12 @@ module.exports = function (grunt) {
 	  },
   	watch: {
   		debug: {
-  			files: ['tasks/*.js'],
-  			tasks: ['jshint', 'dgeni']
+  			files: [
+          'tasks/*.js',
+          'test/*.js',
+          'Gruntfile.js'
+        ],
+  			tasks: ['test']
   		}
   	},
     shell: {
@@ -33,8 +35,13 @@ module.exports = function (grunt) {
 	    },
 	    all: [
 	      'tasks/*.js',
+        'test/*.js',
+        'Gruntfile.js'
 	    ]
 	  },
+    'jasmine_node': {
+      all: ['test/']
+    },
 	  dgeni: {
 	  	options: {
 	  		packages: ['dgeni-markdown'],
@@ -54,8 +61,6 @@ module.exports = function (grunt) {
     ]);
   });
   grunt.registerTask('debug', function() {
-    require('./tasks/dgeni')(grunt);
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-regarde');
     grunt.renameTask('regarde', 'watch');
     
@@ -64,11 +69,17 @@ module.exports = function (grunt) {
     ]);
   });
   grunt.registerTask('dgeni', function() {
-    require('./tasks/dgeni')(grunt);    
+    require('./tasks/dgeni')(grunt);
     grunt.task.run([
       'dgeni'
     ]);
   });
   grunt.registerTask('test', function() {
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jasmine-node'); 
+    grunt.task.run([
+      'jshint',
+      'jasmine_node'
+    ]);
   });
 };

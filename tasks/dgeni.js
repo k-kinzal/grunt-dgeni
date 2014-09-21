@@ -13,25 +13,29 @@ module.exports = function (grunt) {
 	'use strict';
 	// initialize
 	var _ = grunt.util._;
-	var config = grunt.config('dgeni');
-	var options = config.options;
+	var config = grunt.config('dgeni') || {};
+	var options = config.options || {};
 	// create package
 	var packages = [];
-	options.packages.forEach(function(packageName) {
+	(options.packages || []).forEach(function(packageName) {
 		packages.push(require(packageName));
 	});
-	var p = new Package('grunt-dgeni', packages.length ? packages : require('dgeni-markdown'));
+	var p = new Package('grunt-dgeni', packages.length ? packages : [require('dgeni-markdown')]);
 	// setting processor configuration
 	_.forEach(options, function(parameters, serviceName) {
 		if (serviceName === 'packages' || serviceName === 'basePath') {
 			return;
 		}
 		_.forEach(parameters, function(value, paramName) {
-			p.config(new Function(serviceName, serviceName+'.'+paramName+'='+JSON.stringify(value)+";"));
+			/*jslint evil: true */
+			p.config(new Function(serviceName, serviceName+'.'+paramName+'='+JSON.stringify(value)+';'));
 		});
 	});
 	// setting readFilesProcessor configuration
 	config.src && p.config(function(readFilesProcessor) {
+		if (!_.isArray(config.src)) {
+			config.src = [config.src];
+		}
 		readFilesProcessor.basePath = path.resolve(options.basePath);
 		readFilesProcessor.sourceFiles = [];
 		config.src.forEach(function(sourceInfo) {

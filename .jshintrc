@@ -24,6 +24,16 @@
   	// grunt
   	"grunt": true,
   	"module": true,
+    // jasmine
+    "afterEach": false,
+    "beforeEach": false,
+    "describe": false,
+    "expect": false,
+    "jasmine": false,
+    "spyOn": false,
+    "spyOnEvent": false,
+    "waitsFor": false,
+    "it": false,
   	// other
   	"console": true
   }

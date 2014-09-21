@@ -23,7 +23,10 @@
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-regarde": "~0.1.1",
     "grunt-shell": "~1.1.1",
-    "jshint-stylish": "~1.0.0"
+    "jshint-stylish": "~1.0.0",
+    "jasmine-node": "~1.14.5",
+    "grunt-jasmine-node": "~0.2.1",
+    "proxyquire": "~1.0.1"
   },
   "dependencies": {
     "dgeni": "~0.4.0",
