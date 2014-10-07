@@ -1,6 +1,8 @@
 # grunt-dgeni
 
 [![Build Status](https://travis-ci.org/k-kinzal/grunt-dgeni.svg)](https://travis-ci.org/k-kinzal/grunt-dgeni)
+[![Dependency Status](https://david-dm.org/k-kinzal/grunt-dgeni.svg)](https://david-dm.org/k-kinzal/grunt-dgeni)
+[![devDependency Status](https://david-dm.org/k-kinzal/grunt-dgeni/dev-status.svg)](https://david-dm.org/k-kinzal/grunt-dgeni#info=devDependencies)
 
 > generating documentation for grunt task
 
