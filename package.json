@@ -1,6 +1,6 @@
 {
   "name": "grunt-dgeni",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "generating documentation for grunt task",
   "main": "tasks/dgeni.js",
   "scripts": {
