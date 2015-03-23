@@ -32,9 +32,9 @@
   },
   "homepage": "https://github.com/k-kinzal/grunt-dgeni",
   "devDependencies": {
-    "grunt": "~0.4.5",
+    "grunt": "^0.4.5",
     "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-jshint": "^0.11.1",
     "grunt-jasmine-node": "~0.2.1",
     "grunt-regarde": "~0.1.1",
     "grunt-shell": "~1.1.1",
