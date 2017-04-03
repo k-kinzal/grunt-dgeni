@@ -43,8 +43,6 @@
     "proxyquire": "^1.0.1"
   },
   "dependencies": {
-    "dgeni": "^0.4.2",
-    "dgeni-markdown": "0.0.3",
-    "dgeni-packages": "^0.11.1"
+    "dgeni-markdown": "0.0.5"
   }
 }
