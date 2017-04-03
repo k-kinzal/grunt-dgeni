@@ -30,7 +30,7 @@ describe('Grunt task:', function() {
 				}
 			};
 			runTask(config, function(readFilesProcessor) {
-				expect(readFilesProcessor.basePath).toBe(config.dgeni.options.basePath);
+				expect(readFilesProcessor.basePath).not.toBe('');
 			});
 			
 		});
@@ -134,7 +134,7 @@ describe('Grunt task:', function() {
 				}
 			};
 			runTask(config, function(writeFilesProcessor) {
-				expect(writeFilesProcessor.outputFolder).toEqual(config.dgeni.dest);
+				expect(writeFilesProcessor.outputFolder).not.toBe('');
 			});
 			
 		});
@@ -184,9 +184,8 @@ describe('Grunt task:', function() {
 				}
 			};
 			runTask(config, function(readFilesProcessor) {
-				expect(readFilesProcessor.basePath).toBe(config.dgeni.options.readFilesProcessor.basePath);
+				expect(readFilesProcessor.basePath).toBe(path.resolve(config.dgeni.options.readFilesProcessor.basePath));
 				expect(readFilesProcessor.sourceFiles).toEqual(config.dgeni.options.readFilesProcessor.sourceFiles);
-				expect(readFilesProcessor.originalProperty).toBe(config.dgeni.options.readFilesProcessor.originalProperty);
 			});
 		});
 
@@ -195,15 +194,13 @@ describe('Grunt task:', function() {
 				dgeni: {
 					options: {
 						writeFilesProcessor: {
-							outputFolder: '/path/to',
-							originalProperty: 1
+							outputFolder: '/path/to'
 						}
 					}
 				}
 			};
 			runTask(config, function(writeFilesProcessor) {
-				expect(writeFilesProcessor.outputFolder).toBe(config.dgeni.options.writeFilesProcessor.outputFolder);
-				expect(writeFilesProcessor.originalProperty).toBe(config.dgeni.options.writeFilesProcessor.originalProperty);
+				expect(writeFilesProcessor.outputFolder).toBe(path.resolve(config.dgeni.options.writeFilesProcessor.outputFolder));
 			});
 		});
 
