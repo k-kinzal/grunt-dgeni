@@ -26,15 +26,31 @@ module.exports = function (grunt) {
 		(options.packages || []).forEach(function(packageName) {
 			packages.push(require(packageName));
 		});
+		
 		var p = new Package('grunt-dgeni', packages.length ? packages : [require('dgeni-markdown')]);
 		// setting processor configuration
 		_.forEach(options, function(parameters, serviceName) {
-			if (serviceName === 'packages' || serviceName === 'basePath') {
+			if (serviceName === 'packages' || serviceName === 'basePath' || serviceName === 'readFilesProcessor' || serviceName === 'writeFilesProcessor') {
 				return;
 			}
 			_.forEach(parameters, function(value, paramName) {
 				/*jslint evil: true */
 				p.config(new Function(serviceName, serviceName+'.'+paramName+'='+JSON.stringify(value)+';'));
+			});
+		});
+		options && options.writeFilesProcessor && options.writeFilesProcessor.outputFolder && p.config(function(writeFilesProcessor) {
+			writeFilesProcessor.outputFolder = path.resolve(options.writeFilesProcessor.outputFolder);
+		});
+		options && options.readFilesProcessor && options.readFilesProcessor.basePath && p.config(function(readFilesProcessor) {
+			readFilesProcessor.basePath = path.resolve(options.readFilesProcessor.basePath);
+			readFilesProcessor.sourceFiles = [];
+			options.readFilesProcessor.sourceFiles.forEach(function(sourceInfo) {
+				if (_.isString(sourceInfo)) {
+					sourceInfo = {
+						include: sourceInfo,
+					};
+				}
+				readFilesProcessor.sourceFiles.push(sourceInfo);
 			});
 		});
 		// setting readFilesProcessor configuration
@@ -58,7 +74,6 @@ module.exports = function (grunt) {
 		config.dest && p.config(function(writeFilesProcessor) {
 			writeFilesProcessor.outputFolder = path.resolve(config.dest);
 		});
-
 		return p;
 	}
 
