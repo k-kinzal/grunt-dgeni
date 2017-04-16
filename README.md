@@ -95,6 +95,19 @@ Default value: `undefined`
 
 A array string value that is used to path or reading module name.
 
+Example: 
+
+```js
+grunt.initConfig({
+	dgeni: {
+		options: {
+			...
+			packages: [path.resolve('./node_modules/grunt-dgeni/node_modules/dgeni-packages/ngdoc')],
+		}
+	}
+})
+```
+
 #### options.basePath
 Type: `String`
 Default value: `undefined`
